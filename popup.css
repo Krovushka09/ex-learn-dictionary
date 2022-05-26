@@ -1,3 +1,11 @@
+
+/*не уверен что правильно, но 
+пока пусть так body будет*/
+.body {
+  height: 300px;
+  width: 300px;
+}
+
 button {
     height: 30px;
     width: 30px;
