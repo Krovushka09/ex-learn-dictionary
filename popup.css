@@ -2,13 +2,11 @@
 /*не уверен что правильно, но 
 пока пусть так body будет*/
 .body {
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
 }
 
 button {
-    height: 30px;
-    width: 30px;
     outline: none;
     margin: 10px;
     border: none;
