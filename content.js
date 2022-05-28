@@ -31,7 +31,7 @@ async function createPopup(event){
   let selectedText = getSelectedText();
   if (selectedText === ''){
     if (popupExist === true){
-      let delAlert = document.querySelector('.divAlert');
+      let delAlert = document.querySelector('.modalPopup');
       document.body.removeChild(delAlert);
       popupExist = false;
       console.log('if 2');
@@ -40,7 +40,7 @@ async function createPopup(event){
     return;
   }
   if (popupExist === true){
-    let delAlert = document.querySelector('.divAlert');
+    let delAlert = document.querySelector('.modalPopup');
     document.body.removeChild(delAlert);
     popupExist = false;
     console.log('if');
@@ -48,8 +48,14 @@ async function createPopup(event){
     console.log('else');
     let translatedteWord = await find(selectedText);
     let div = document.createElement('div');
-    div.className = 'divAlert';
-    div.innerHTML = `<span>${translatedteWord}</span>`;
+    div.className = 'modalPopup center';
+    div.innerHTML = `
+        <div>
+            ${translatedteWord}
+        </div>
+        <div>
+            <button class='modalButton'>Add</button>
+        </div>`;
     /*
     div.style.top = `300px`;
     div.style.left = `300px`;
@@ -57,10 +63,12 @@ async function createPopup(event){
     
     div.style.top = `${event.clientY + 12}px`;
     div.style.left = `${event.clientX - 20}px`;
+    /*
     div.style.width = '100px';
     div.style.height = '100px';
-    div.style.backgroundColor = 'darksalmon';
+    div.style.backgroundColor = 'white';
     div.style.position = 'absolute';
+    */
 
     document.body.append(div);
     popupExist = true;
@@ -77,7 +85,12 @@ async function find(findText){
     console.log(response);
     const answer = await response.json();
     console.log(answer);
+    let translate = '';
     //let url = `https://translate.yandex.ru/?lang=en-ru&text=${findText}`;
-    let translate = answer.def[0].tr[0].text;
+    try{
+      translate = answer.def[0].tr[0].text;
+    }catch{
+      alert('Неприавльно выделено слово!');
+    }
     return translate;
 }
