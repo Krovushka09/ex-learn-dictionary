@@ -1,9 +1,4 @@
 let docClick = document.body.addEventListener('click', createPopup);
-//let but = document.querySelector('.but');
-//document.body.addEventListener('click', () => alert('hi'));
-//let addBut = document.body.querySelector('.add')
-//addBut.addEventListener('click', createPopup);
-//but.addEventListener('click', find);
 
 var textApi = 'resist';
 var popupExist = false;
@@ -22,10 +17,6 @@ function getSelectedText(){
   */
   return  text;
 };
-
-function printXY(event){
-  alert(event.clientX + '/' + event.clientY);
-}
 
 async function createPopup(event){
   let selectedText = getSelectedText();
@@ -49,13 +40,7 @@ async function createPopup(event){
     let translatedteWord = await find(selectedText);
     let div = document.createElement('div');
     div.className = 'modalPopup center';
-    div.innerHTML = `
-        <div>
-            ${translatedteWord}
-        </div>
-        <div>
-            <button class='modalButton'>Add</button>
-        </div>`;
+    div.innerHTML = `<div>${translatedteWord}</div>`;
     /*
     div.style.top = `300px`;
     div.style.left = `300px`;
@@ -73,11 +58,6 @@ async function createPopup(event){
     document.body.append(div);
     popupExist = true;
   }
-}
-
-function popFunc() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
 }
 
 async function find(findText){
