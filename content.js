@@ -22,7 +22,7 @@ async function createPopup(event){
   let selectedText = getSelectedText();
   if (selectedText === ''){
     if (popupExist === true){
-      let delAlert = document.querySelector('.modalPopup');
+      let delAlert = document.querySelector('.modal-popup');
       document.body.removeChild(delAlert);
       popupExist = false;
       console.log('if 2');
@@ -31,7 +31,7 @@ async function createPopup(event){
     return;
   }
   if (popupExist === true){
-    let delAlert = document.querySelector('.modalPopup');
+    let delAlert = document.querySelector('.modal-popup');
     document.body.removeChild(delAlert);
     popupExist = false;
     console.log('if');
@@ -39,7 +39,7 @@ async function createPopup(event){
     console.log('else');
     let translatedteWord = await find(selectedText);
     let div = document.createElement('div');
-    div.className = 'modalPopup center';
+    div.className = 'modal-popup center';
     div.innerHTML = `<div>${translatedteWord}</div>`;
     /*
     div.style.top = `300px`;

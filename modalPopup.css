@@ -1,4 +1,4 @@
-.modalPopup{
+.modal-popup{
     width: 160px;
     height: 30px;
     background-color: darksalmon;
@@ -10,7 +10,7 @@
     gap: 10px;
 }
 
-.modalButton{
+.modal-button{
     width: 50px;
     height: 20px;
     border-radius: 15%;
