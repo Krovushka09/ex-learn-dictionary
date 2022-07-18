@@ -1,18 +1,18 @@
 .modal-popup{
     width: 160px;
-    height: 30px;
-    background-color: darksalmon;
+    height: 100px;
+    background-color: #fff;
     position: absolute;
-    border-width: 1px;
-    border-color: grey;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 10px;
+    border: 1px solid #000;
+    box-shadow: 0px 0px 3px gray;
 }
 
 .modal-button{
-    width: 50px;
-    height: 20px;
+    width: 40px;
+    height: 25px;
     border-radius: 15%;
     cursor: pointer;
 }
