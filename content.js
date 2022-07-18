@@ -23,7 +23,7 @@ async function createPopup(event){
     let selectedText = getSelectedText();
     if (!selectedText) return;
     let wordsObj = await useTranslateApi(selectedText);
-    if (!wordsObj){
+    if (wordsObj){
         console.log('failed translate');
         return;
     }
