@@ -2,9 +2,7 @@ async function useTranslateApi(findText){
     const response = await fetch(`https://dictionary.yandex.net/api/v1/dicservice.json/lookup?key=dict.1.1.20210719T110344Z.d10dc7be15af410e.076c0dcf9789baf9ea84c3ef96a4ac08855547a5&lang=en-ru&flags=4&text=${findText}`);
     const answer = await response.json();
     console.log('answer', answer);
-    if (answer.def[0]?.tr[0]?.text) return false;
-    
-    let result = answer.def[0]?.tr[0]?.text ?? false;
+    return answer.def[0]?.tr[0]?.text ?? false;
     /*
     let url = `https://translate.yandex.ru/?lang=en-ru&text=${findText}`;
     let translate = '';
@@ -16,8 +14,7 @@ async function useTranslateApi(findText){
       console.log('meh, fix this, cmon, html/css can wait')
     }
     */
-   return result;
-    //return createResultObj(answer);
+    return createResultObj(answer);
 }
 
 function createResultObj(answer) {

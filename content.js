@@ -23,7 +23,8 @@ async function createPopup(event){
     let selectedText = getSelectedText();
     if (!selectedText) return;
     let wordsObj = await useTranslateApi(selectedText);
-    if (wordsObj){
+    console.log(wordsObj);
+    if (!wordsObj){
         console.log('failed translate');
         return;
     }
@@ -46,10 +47,8 @@ function popupTameplate(event, selectedText, translatedteWord){
 
     div.className = 'modal-popup center';
     div.innerHTML = `<div>
-        <span>${selectedText}</span>
-        <hr>
-        <span>${translatedteWord}</span>
-        <br>
+        <div>${selectedText}</div>
+        <div>${translatedteWord}</div>
         <button class="modal-button">Add</button>
     </div>`;
 
